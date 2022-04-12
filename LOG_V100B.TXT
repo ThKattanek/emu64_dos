@@ -1,0 +1,448 @@
+MO 04.04.1999
+-------------
+
+Die Load Routiene habe ich so verändert das automatisch bei
+einem Programm RUN oder SYS ***** ausgegeben wird.
+Das SYS funktioniert nicht immer, da die Startadresse nicht
+immer die Einsprungadresse fürs Programm sein muss. 
+
+DO 01.04.1999
+-------------
+
+Habe Heute die Tasten F9 und F10 rausgenommen (CIA1 an/aus).
+Dann habe ich die CIA1 um das Register 0E erweitert.
+Jetzt ist es Softwaremäßig möglich den Timer A der CIA1
+zu Stoppen.
+Einige Demos benutzen dies um den Timer Interrupt zu
+verhindern.
+Dadurch laufen jetzt einige Demos ohne Flackern.
+
+MI 31.03.1999
+-------------
+
+Habe heute an der CIA1 rumgespielt und ein Bug behoben.
+Und zwar das Fenomän des langsamen Bildaufbaus.
+Es war ein Fehler in der Counter A Routiene.
+Es wurde verglichen auf negativ Werte was zwangsläufig
+zu ständiger abfrage des Tastaturportes des PC´s führte
+und den Rechner Blockierte.Dies wurde mit einer abfrage auf
+Zerro behoben.
+
+MO 03.05.1999
+-------------
+
+Nach einer etwas längeren Schöpfungspause gehts weiter.
+Heute habe ich mich einmal an die SID Emulation über den
+DSP rangemacht.
+ 
+MI 05.05.1999
+-------------
+
+Was für ein Ding. Bis jetzt war der DMA für mich im PC
+ein Ding mit sieben Siegeln. Doch für den SID über DSP
+komme ich da nicht dran vorbei ! :-)
+Erstmal Theorie.....
+
+DO 06.05,1999
+-------------
+
+So der DMA steht und ich bin zufrieden.
+Jetzt gehts an die Programmierung des
+Interupt Contollers.
+Na das kann ja Eiter werden.
+
+SA 07.05.1999
+-------------
+
+Nach einigen Hürden steht jetzt auch der Interrupt
+für die Soundkarte. Das Double Buffering klappt auch.
+Jetzt gehts um die SID Emulation.
+
+FR 13.08.1999
+-------------
+
+Heute habe ich mir einen neuen Rechner spendiert.
+Einen PIII 450 MHZ. Der Emu64 läuft dort mit 113 FPS !!!
+Heute habe ich wieder angefangen direkt an der Emulation
+weiterzu arbeiten.
+Die ganze Zeit ging in die neue GUI.
+Die alte war nich flexibel genug um die geplanten
+Futures des EMU64 zu realisieren.
+Die neue wird der Hammer !!
+Es fehlt nur noch einige kleine Dinge, aber ansonsten
+läuft das ganze schon recht gut.
+Heute habe ich in der CPU Emulation rumgespielt, und die
+Undokumentierten Opcodes wieder rausgenommen.
+Diese werde ich jetzt nach und nach erneut und kommplett
+einfügen.
+
+MI 27.10.1999
+-------------
+
+Jetzt wird ernsthaft am EMU64 weitergemacht!
+Die GUI steht schon fast kommplett.
+Das was noch fehlt wird dann ergänzt wenn es gebraucht wird.
+Heute habe ich angefangen die alte GUI(GBO) rauszuschmeissen.
+
+DO 28.10.1999
+-------------
+
+Heute habe ich den Rest der alten GUI
+rausgeschmissen.Jetzt ist nichts mehr davon drin.
+Jetzt gehts daran die neue einzubauen.
+Habe jetzt noch die Status Anzeige am Anfang
+so erweitert das nach einer S-VGA Karte gesucht wird.
+Ausserdem wird jetzt im CFG File auch die Auflösung
+der GUI gespeichert.Wenn diese nicht gefunden wird
+wird die Standard Auflösung von 640*480 gewählt.
+ 
+DO 28.10.1999
+-------------
+
+Jetzt ist die neue GUI fester bestandteil des ENU64 Beta 1.00
+2 Menüpunkte existieren schon.
+EMU64 Ende und C64 Emulation starten.
+Leider sind noch kleine Mängel zu beseitigen.
+Aber so läuft es schon ganz gut :-)
+
+FR 29.10.1999
+-------------
+
+Wow !! Wie sich das anhört.
+Heute klingte  das erstemal über den DSP Chip, die neue
+SID Emulation.Sieh steht völlig am anfang und ich weiss
+noch gar nicht ob ich das alles so hinkriege wie
+ich es mir vorgenommen habe.Aber eins ist klar das was man hört
+sieht vielversprechend aus.
+(Es ist gerade mal die 1.Stimme und es wird nur das HI-Frquenz register
+ emuliert)
+
+SA 30.10.1999
+-------------
+
+Heute habe ich das erstemal in mein Leben 3 Waves
+zusammen gemischt.Und das beste daran, es hat geklappt.
+Doch irgendwie wollen die SID Stimmen nicht so richtig
+klingen.
+
+SO 31.10.1999
+-------------
+
+Oh MAnn !! Habe ich ein Kopf.
+Aber eins ist sicher die SID Emulation über den DSP
+wird immer besser.
+Heute bin ich so weit das ich alle 3 Stimmen habe und
+sie können gewisse Frequenzen abspielen.Jedoch nur mit
+einer Wellenform, diese ist Sägezahhn.An und ausschalten
+kann ich sie auch schon.Aber ich stehe immer noch völlig
+am Anfang.So kommt noch die Hüllkurve der Filter usw.usw...
+
+MO 01.11.1999
+-------------
+
+Absolut Geil !!!
+Heute habe ich alle 3 Stimmen nochmals überarbeitet !
+Kommplett überarbeitet.Und zwar habe ich den Kommpletten
+Algorythmus neu erstellt, der für die Wellenerzeugung (Oscillator)
+zuständig ist.Es wird immernoch nur die Sägezahnwelle
+erstellt.Aber jetzt stimmen die Frequenzen zu 95%.
+Also 0=0Hz und 1200 Hz = 1200 Hz.Ausserdem kann mann jetzt auch die
+hohen Töne (über 1Khz) hören, was ja gestern noch nicht möglich war!
+Zur erstellung der Samples verwende ich jetzt die FPU !!
+Aufjedenfall bin ich jetzt schon wieder ein ganzes Stück weiter gekommen.
+Ich hoffe es läuft in Zukunft auch so, ich habe noch etwas aufzuholen :-).
+Vielleich bringe ich im November ja die version 1.00 Beta raus.
+
+DI 02.11.1999
+-------------
+
+Heute habe ich mich nochmals intensiv um die anpassung der
+Frequenz am C64 gekümmert. Die umrechnung erfolg jetzt über die
+FPU.Dafür habe ich jetzt ein noch ungeklärtes Problem.
+Und zwar wenn ich den Hi Wert einer Stimme änder sollte sich
+von Wert zu Wert die Tonhöhe ändern.Da gibt es aber Werte wie z.B.
+47 und 48 die die gleiche Tonhöhe Spielen (und noch viele mehr).
+Woran das liegt weiss ich noch nicht, aber das werde ich hoffentlich Morgen
+lösen.
+
+FR 05.11.1999
+-------------
+
+Zwar läuft der neue SID irgendwie nicht bei meinen Alphatester Stephan
+aber bei mir erziele ich damit sehr gute Ergebnisse.
+Heute gings wieder um die F4requenzberechnung.
+Diese Funktioniert jetzt mit der Sägezahnwelle sehr gut.
+Alle Frequenzen werden richtig wiedergegeben.
+
+SA 06.11.1999
+-------------
+
+Heute gings um die Lautstärke.
+Ab jetzt kann man die Lautstärke im Register 24 (0-15) einstellen.
+Wobei 0 nicht hörbar und 15 die Maximal Lautstärke ist.
+Ausserdem ist bei allen Stimmen jetzt das KEY Bit in funktion
+und bei allen Stimmen Funzt schon die Attack und die Relaise.
+
+SO 07.11.1999
+-------------
+
+So Heute ist der 1.Teil der SID Emulation über den DSP Chip 
+abgeschlossen.
+
+Bis jetzt wird folgendes unterstützt.....
+
+- alle 3 Ossilocatoren erzeugen die Sägezahnwelle
+- alle 3 Enveloopgeneratoren erzeugen die Hüllkurve
+  jedoch nur die Attackphase und die Relaisephase
+- Lautstärke Register
+- Key-Bit aller Drei Stimmen
+
+DO 11.11.1999
+-------------
+
+Spezialversion für Stephan erstellt.
+In dieser ist der alte SID über OPL und die
+neue GUI.
+Ich hoffe diese Version geht wieder bei ihm.
+
+FR 19.11.1999
+-------------
+
+Heute habe ich angefangen die Icons für die Menüsteuerung
+zu zeichnen.
+
+SA 27.11.1999
+-------------
+
+Habe angefangen ein Filerequest zum Auswählen eines D64 Files zu schreiben.
+Es wird schon das aktuelle Verzeichniss angezeigt.
+
+MO 29.11.1999
+-------------
+
+Heute habe ich das Filerequest so umgeschrieben das es jetzt fester bestand-
+teil von der Intuit Lib ist.
+Mit einem einzigen Call aufruf kann man sich ein individuell angepasstes 
+Filerequest auf dem Schirm zaubern.
+Einige änderungen sind zwar noch notwendig aber im grossen und ganze,
+kann man damit schon sehr gut arbeiten.
+
+MO 06.12.1999
+-------------
+
+Seit einigen Tagen arbeite ich an der Entwicklung des 
+internen Debuggers/Disassembler/Assembler.
+Diesen brauche ich unbedingt für die weitere Entwicklung der Emulation.
+Bis jetzt habe ich die Mnemonic Tabelle erstellt die alle 256 möglichen 
+Befehle (auch illegale !) enthält. Zusätzlich enthält die Tabelle die Anzahl
+der Zyklen des Opcodes und ob es sich um ein legalen oder illegalen Opcode handelt.
+
+DI 07.12.1999
+-------------
+
+Heute habe ich den Teil für die Disassemblierung erstellt.
+In dem Fenster kann man sich den Programmcode anschauen (Ram/Rom).
+Man kann sogar sich durch den ganzen Speicher scrollen.
+
+Das wird angezeigt....  C000  00          BRK
+			C001  20 00 C0    JMP $C000
+			.
+			.
+			. usw.
+Es werden alle Adressierungsarten unterstützt.
+
+MI 08.12.1999
+-------------
+
+Wieder habe ich an der Disassemblierung weitergemacht.
+Das ganze ist jetzt schon recht komfortabel.
+Alle illegalen Opcodes werden mit Rot dargestellt.
+Die Zyklen die der Opcode braucht werden ebenfalls angezeigt.
+Dann ist es möglich durch die Eingabe der Adresse (als Hex)
+zu jeden beliebigen Punkt zu springen.
+
+DO 09.12.1999
+-------------
+
+Zum Disassembler ist ein Debugger hinzugekommen !!
+Dieser Zeigt alle Register der 6510 CPU an.
+Man kann mit einem Button ein Befehl weiter machen und
+mit dem Button Animate kann mann sogar das Programm
+selber ablaufen lassen.
+
+DO 23.12.1999
+-------------
+
+Oh wie Toll !!
+Heute habe ich dem Emu64 ein zweiten Videomodus, für
+die VIC Emulation spendiert.
+Diese Modi lassen sich bequem über die GUI einstellen.
+Und zwar sind jetzt folgende V-Modi vorhanden.
+
+		1. 320*200
+		2. 360*240
+
+Damit steht der Emu64 nicht mehr hinter dem CB64 !! :-)
+P.S. Der Sound hört sich bei mir auch besser an.
+Ausserdem habe ich noch an der VIC Emulation rumgespielt
+und so ein halben aber gutaussehenden Rahmen eingebaut.
+Zudem Funktioniert jetzt auch wieder die Umschaltung zwischen
+GUI und Emulation auch wenn der Rahmen ausgeschalten ist.
+
+SO 26.12.1999
+-------------
+
+Habe heute ein neues File-request angefangen zu programmieren.
+Dieses wird für die anzeige des D64 Image benutzt.
+Bis jetzt wird der Diskettenname angezeigt und das D64 Direktorie
+in den Speicher geladen.
+
+SO 26.12.1999
+-------------
+
+Endlich kann man jetzt wieder im Emu64 ein Programm laden.
+Dieses Funktioniert schon recht gut aber sehr umständlich.
+Die einzelnen Teile sind zwar schon eingebaut, aber damit
+es richtig geht müssen die Teile zusammenarbeiten.
+Dies wird mein nächster Tag.
+Ausserdem funktioniert der DSP SID astrein im neuen EMU64.
+
+MO 27.12.1999
+-------------
+
+So das wär erst mal erledigt.
+Das komplette Filesystem für das laden aus einem D64 Image
+steht.Jetzt kann mann wie gewohnt sehr leicht ein D64 auswählen und
+dann im C64 Direktori das C64 Programm auswählen.
+Das C64-DIR wird mit dem Originalem C64 Font angezeigt.
+Dadurch sieht das DIR wie auf dem C64 Screen aus.
+Ein zwei kleine änderungen werde ich zwar noch vornehmen, aber
+so wie es ist sieht das schon sehr gut aus.
+
+P.S. Mit dieser Version des Emu64 müsste ich um einige Nasenlängen
+     vor dem CB64 sein. Womit ich meine Pause wieder rausgeholt habe.
+     " Was machen nur die vielen Leute vom CB64 Team ??? "
+
+DI 28.12.1999
+-------------
+
+Heute ist einiges dazugekommen....
+
+- erstmal habe ich das Filerequest vollendet
+- wenn man ein Programm lädt wird sofort der Emulator gestartet
+- ein Reseticon ist auch dazugekommen. Mit ihm wird ein Hardreset
+  ausgeführt
+- Ausserdem ist der Emulator jetzt mit 50 Hz syncronisiert (PAL)
+  Das heisst der EMU64 kann nicht schneller sein aber er könnte
+  auf einigen Rechnern langsammer sein (noch kein Frameskip)
+
+MI 29.12.1999
+-------------
+
+Heute Habe ich das eine Lade Funktion dazu programmiert.
+Und zwar kan man mit "LOAD und RUN" ein C64 Programm laden ohne
+das der C64 in der Eingabe-Warte-Schleife sein muss.
+Der Emulator macht automatisch ein Hardreset, dann lädt er das
+Programm in den Speicher und wenn es ein Programm ist welches
+am Basicstart ($0801) geladen wurde wird es automatisch gestartet.
+Ist es ein anderer Start wird SYS (Sartadresse) ausgegeben.
+Return muss man dann in dem Falle selber drücken.
+
+DO 30.12.1999
+-------------
+
+Jetzt wird im Emu64 wieder die Absturzadresse angezeigt.
+Ausserdem wird gleichzeitig der Debugger geöffnet.
+Dieser steht dann vor dem Befehl.
+Zudem kann man unter Optionen Einstellne ob die Emulaion
+Illegale Opcode verarbeiten soll oder nicht.
+Heute sind ausserdem noch einige Illegale Opcodes dazugekommen.
+Die da wären....
+
+	$3C	NOP $FFFF,X
+	$FC	NOP $FFFF,X
+	$F3	ISB ($FF),Y
+	$C2	NOP #$FF
+	$3F	RLA $FFFF,X
+	$47	SRE $FF
+	$4B	ASR #$FF
+	$04	NOP $FF
+	$32	JAM
+	$02	JAM
+	$FF	ISB $FFFF,X
+	$0C	NOP $FFFF
+	$0B	ANC #$FF
+	$2B	ANC #$FF
+
+FR 31.12.1999
+-------------
+
+So heute noch schnell etwas vor der Party.
+Also habe noch schnell den Debugger erweitert,
+und zwar kann man jetzt einen Breakpoint eingeben.
+Dann werden die letzten 10 Adressen ausgegeben wo die CPU
+zuletzt war.
+Dann kann man jetzt den C64 Screen in Schwarz/Weiss oder in Farbe
+betrachten.
+So kann man jetzt auch zwischen PAL und NTSC umschalten.
+Ausserdem wird der DSP erst in der Emulation gestartet und beim eintritt
+in die GUI wird er wieder ausgeschaltet.
+Was für eine wohltat für die Ohren.
+
+So jetzt aber nichts wie rein ins getümmel und das Jahr 2000 begrüssen.
+
+DI 04.01.2000
+-------------
+
+Wieder hat der Zufall zugeschlagen.
+Und zwar war ich auf der suche im VIC nach Zyklenfehler.
+Dabei viel mir das Register D011 auf.
+Ich setzte das 7te Bit mittels or.
+Doch hätte ich es vorher mit and 01111111B löschen
+müssen. Dadurch war Bit 7 immer gesetzt.
+Durch diesen umstand lief bei mir auch nicht
+Asteroid War. Jetzt läuft es und es ist Toll es zu sehen.
+
+DI 11.01.2000
+-------------
+
+Heute habe ich intensiev am Filerequest gebastelt.
+Und zwar habe ich jetzt die auswahl eines Laufwerks
+hinzugefügt.Jetzt kann man wirklich durchs ganze System
+stöbern.
+Ausserdem kann es nicht mehr vorkommen (so Wie in Version 0.09A)
+das der EMU64 sich weghängt wenn z.B. ein CD-LW ausgewählt wird
+wenn keine CD im Schacht ist.
+Jetzt kommt ein Freundliche Meldung "Laufwerk ist nicht bereit!"
+und zwar unter der GUI in einem Fenster.
+Zudem habe ich in der INTUIT LIB eine Funktion eingebaut
+die es erlaubt schnell und einfach eine Message auf dem Schirm
+zu Zaubern ohne jedes mal gleich eine Fensterstruktur zu erzeugen.
+
+MI 12.01.2000
+-------------
+
+Die fertigstellung der Version 1.00 Beta läuft auf hochturen.
+Ich will am 15.01.2000 um 23.59 die Version Relaisen.
+Heute habe ich den Info Button mit ein Info Fenster verknüft.
+Den Close Icon vom D64 File Request habe ich ebenfalls richtig
+verknüft.
+Die Funktion Halt aus dem Debugger habe ich ebenfalls überarbeitet.
+
+DO 13.01.2000
+-------------
+
+Teil1:
+
+Habe das INTUIT Filerequest mit einer Datei Maske ausgestattet.
+Dadurch kann ich jetzt nur die D64 Files rausfiltern,
+Was eine bessere Übersicht schafft.
+Dann wird jetzt eine Fehlermeldung ausgegeben wenn bei "SHOW" und "HALT"
+keine richtige Hexzahl eingegeben wurde.
+Jetzt funktioniert auch wieder der RadioButton zum Umschalten,
+ob Illegale Opcodes verwendet werden sollen JA/NEIN.
+Die EMU64.CFG Datei wird jetzt auch immer im EMU64 Verzeichnis wieder
+abgespeichert, egal wo mann die D64 geladen hat.
+
+TEIL2:
+
